@@ -30,5 +30,5 @@ class JosephStoragePipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        self.db[self.collection_name].update({'domain': item.domain}, dict(item), {upsert:true})
+        self.db[self.collection_name].update({'domain': item['domain']}, dict(item), {upsert:true})
         return item
