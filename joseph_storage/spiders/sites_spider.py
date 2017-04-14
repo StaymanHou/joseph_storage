@@ -33,7 +33,7 @@ class SitesSpider(scrapy.Spider):
         yield site
 
         for full_link in all_full_links:
-            if full_link.scheme != 'http' && full_link.scheme != 'https':
+            if full_link.scheme != 'http' and full_link.scheme != 'https':
                 continue
             link_to_crawl = '{uri.scheme}://{uri.netloc}/'.format(uri=full_link)
             yield scrapy.Request(link_to_crawl, callback=self.parse)
